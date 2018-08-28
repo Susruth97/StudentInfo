@@ -6,8 +6,7 @@
 	}
 ?>
 <html>
-
-<header></header>
+<head>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -16,7 +15,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <style>
 .bg {
-background-image:url("2.jpg");
+background-image:url("t.jpg");
       height: 100%; 
 
     /* Center and scale the image nicely */
@@ -25,7 +24,7 @@ background-image:url("2.jpg");
     background-size: cover;
      }
 a {
-    color: Aqua;
+    color: orange;
 	padding: 14px 25px;
     text-align: center; 
 }
@@ -36,17 +35,66 @@ background: transparent;
 input[type="date"]{
 background: transparent;
 }
-select{
-background: transparent;
+
+.form-control {
+    border: 0;
 }
 
+.header-right {
+  float: right;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* Change the background color on mouse-over */
+.header a:hover {
+  background-color: transparent;
+  color: orange;
+}
+
+.header {
+  overflow: hidden;
+  background-color: transparent;
+  padding: 20px 10px;
+}
+
+.header a {
+  float: left;
+  color: goldenrod;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header a.active {
+  background-color: transparent;
+  color: orange;
+}
+
+
 </style>
-<body class="text-info">
-	<div class = "bg">
-	<div class = "container">
-	<center><h1>Registration<h1></center>
+
+</head>
+<body class="text-warning"><div class = "bg">
+<div class = "container">
+
+	<div class="header">
+		<a href="#default" class="logo">STUDENT INFO</a>
+		<div class="header-right">
+		<a href="home.php">Home</a>
+		<a class="active" href="reg.php">Insert</a>
+		<a href="signout.php">LogOut</a>
+		<a href="#about">About</a>
+		</div>
+	</div><br>	
   	<form action="reg_post.php" method="POST">
-		<table class="table table-bordered">
+		<table class="table table-striped">
 			<tr>
 				<td align="left">
 					<font size="4">College id : </font>
@@ -57,15 +105,7 @@ background: transparent;
 		    </tr>
 			<tr>
 				<td align="left">
-				<?php
-	session_start();
-        if (isset($_SESSION["user"]))
-        {
-   		//echo "Welcome";
-        }
-	else {
-		header('Location: auth.php'); exit(); }
-?>	<font size="4">Email Id : </font>
+				<font size="4">Email Id : </font>
 				</td>
 				<td>
 					<input type="text" class="form-control" name="email" id="email" placeholder="Enter your Mail ID">
@@ -84,15 +124,9 @@ background: transparent;
 				<td align="left">
 					<font size="4">Gender</font>
 				</td>
-				<td colspan="4">
-					<font size="3" face="Times new roman">
-					 		<select  name="gender" id="gender" class="form-control">
-								<option value="none"> Please select any one</option>
-								<option value="Male"> Male </option>
-								<option value="Female"> Female </option>
-								<option value="Others"> Others </option>
-							</select>	
-					</font>			
+				<td>
+					<input type="text" name="gender" class="form-control" id="gender" size="5" placeholder="gender">
+					
 				</td>
 			</tr>
 			<tr>
@@ -131,14 +165,9 @@ background: transparent;
 					
 				</td>
 			</tr>
-			<tr>
-				<td align="center"><input type="submit" type="button" class="btn btn-info" value="Submit"></td><td align = "center">
-				<input type='reset' name="clear" type="button" class="btn btn-info" value="Reset">
-				</td>
-			</tr>
-
-
+			
 		</table>
+		<center><input type="submit" type="button" class="btn btn-warning" value="Submit"></center>
 	</form></div></div>
 </body>
 

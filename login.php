@@ -8,7 +8,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <style>
 .bg {
-background-image:url("2.jpg");
+background-image:url("r1.jpg");
       height: 100%; 
 
     /* Center and scale the image nicely */
@@ -21,26 +21,71 @@ a {
 	padding: 14px 25px;
     text-align: center; 
 }
+
 input[type="text"]{
 background: transparent;
 }
 
+.form-control {
+    border: 0;
+}
+
+.header-right {
+  float: right;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* Change the background color on mouse-over */
+.header a:hover {
+  background-color: transparent;
+  color: orange;
+}
+
+.header {
+  overflow: hidden;
+  background-color: transparent;
+  padding: 20px 10px;
+}
+
+.header a {
+  float: left;
+  color: goldenrod;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header a.active {
+  background-color: transparent;
+  color: orange;
+}
+
+
 </style>
-<body  class="text-info"><div class = "bg">
+<body  class="text-warning"><div class = "bg">
 	<div class = "container">
-		<h1 align = "center">LOGIN PAGE</h1><br>
-		<table class="table table-bordered"> <tr>
-			<td>Don't hava an account ?</td>
-			<td><a href="faculty.php"><button type="button" class="btn btn-info">Register</button></a></td>
-		</tr>
-		</table><br><br>
+		<div class="header">
+		<a href="#default" class="logo">STUDENT INFO</a>
+		<div class="header-right">
+		<a href="faculty.php">Register</a>
+		<a class="active" href="login.php">LogIn</a>
+		<a href="#about">About</a>
+		</div>
+	</div><br><br><br><br>
   	<form action="signin.php" method="POST">
-		<table class="table table-bordered">
+		<table class="table table-striped">
 				<td align="left">
 					<font size="4">Email Id : </font>
 				</td>
 				<td>
-					<input type="text" name="fmail" class="form-control" id="fmail" placeholder="Enter your Mail ID">
+					<input type="text" name="fmail" class="form-control" id="fmail" placeholder="Enter your mailiD">
 				</td>
 		    </tr>
 			<tr>
@@ -52,9 +97,9 @@ background: transparent;
 					
 				</td>
 			</tr>
-				<td colspan="2" align="center"><input type="submit" type="button" class="btn btn-info" value="LogIn">
 
 		</table>
+		<center><input type="submit" type="button" class="btn btn-warning" value="LogIn"></center>
 	</form>
 </div></div>
 </body>

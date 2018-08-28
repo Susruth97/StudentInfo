@@ -1,6 +1,6 @@
 <html>
 <style>
- body{background-image:url("2.jpg");
+ body{background-image:url("j.jpg");
       
      }
 button {
@@ -27,7 +27,7 @@ $fsub 	= $_POST['fsub'];
 $fpass 	= $_POST['fpass'];
 
 session_start();
-$conn = new mysqli('localhost','root','1','susruth');
+$conn = new mysqli('localhost','root','','susruth');
 
 if (!$conn) {
     die("Connection failed");

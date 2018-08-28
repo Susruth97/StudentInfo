@@ -8,8 +8,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <style>
 .bg {
-background-image:url("2.jpg");
-      height: 100%; 
+ background-image: url("j.jpg");      height: 100%; 
 
     /* Center and scale the image nicely */
     background-position: center;
@@ -21,25 +20,70 @@ a {
 	padding: 14px 25px;
     text-align: center; 
 }
+
 input[type="text"]{
 background: transparent;
 }
 
+.form-control {
+    border: 0;
+}
+
+.header-right {
+  float: right;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* Change the background color on mouse-over */
+.header a:hover {
+  background-color: transparent;
+  color: orange;
+}
+
+.header {
+  overflow: hidden;
+  background-color: transparent;
+  padding: 20px 10px;
+}
+
+.header a {
+  float: left;
+  color: goldenrod;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header a.active {
+  background-color: transparent;
+  color: orange;
+}
+
+
 </style>
-<body  class="text-info"><div class = "bg">
-	<div class = "container">
-		<h1 align = "center">FACULTY HOME PAGE</h1> 
-		<table class="table table-bordered"> <tr>
-			<td><a href="faculty.php"><button type="button" class="btn btn-info">Register</button></a></td>
-			<td><a href="login.php"><button type="button" class="btn btn-info">LogIn</button></a></td>
-		</tr>
-		</table>
+<body  class="text-warning"><div class = "bg">
+	<div class = "container"><br><br>
+		<div class="header">
+		<a href="#default" class="logo">STUDENT INFO</a>
+		<div class="header-right">
+		<a class="active" href="#home">Register</a>
+		<a href="login.php">LogIn</a>
+		<a href="#about">About</a>
+		</div>
+	</div><br>
 		<form action="signup.php" method="POST">
-		<table class="table table-bordered">
+		<table class="table table-striped table-condensed">
 		
 			<tr>
 				<td align="left">
-					<font size="4">Faculty Id : </font>
+					<font size="4">Faculty Id</font>
 				</td>
 				<td>
 					<input type="text" class="form-control" name="fid" id="fid" placeholder="Enter your id">
@@ -47,7 +91,7 @@ background: transparent;
 		    </tr>
 			<tr>
 				<td align="left">
-					<font size="4">Email Id : </font>
+					<font size="4">Email Id</font>
 				</td>
 				<td>
 					<input type="text" class="form-control" name="fmail" id="fmail" placeholder="Enter your Mail ID">
@@ -89,13 +133,8 @@ background: transparent;
 					
 				</td>
 			</tr>
-			<tr>
-				<td align="center"><input type="submit" type="button" class="btn btn-info" value="Submit"></td><td align="center">
-				<input type='reset' name="clear" type="button" class="btn btn-info" value="Reset">
-				</td>
-			</tr>
 			</table>
-
+			<center><input type="submit" type="button" class="btn btn-warning" value="Submit"></center>
 			</form>
 			</div></div>
 </body>

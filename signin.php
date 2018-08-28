@@ -24,7 +24,7 @@ $fpass 	= $_POST['fpass'];
 
 session_start();
 
-$conn = new mysqli('localhost','root','1','susruth');
+$conn = new mysqli('localhost','root','','susruth');
 
 if (!$conn) {
     die("Connection Failed");

@@ -1,6 +1,6 @@
 <html>
 <style>
- .bg{background-image:url("2.jpg");
+ .bg{background-image:url("j.jpg");
       
      }
 </style>
@@ -15,7 +15,7 @@
 	$branch = $_POST['branch'];
 	$year = $_POST['year'];
 
-		$conn = new mysqli('localhost','root','1','susruth');
+		$conn = new mysqli('localhost','root','','susruth');
 
 		if(!$conn) {
 		$message = "Error";

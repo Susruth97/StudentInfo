@@ -20,7 +20,7 @@ a {
 
 <?php
 
-$conn = new mysqli('localhost','root','1','susruth');
+$conn = new mysqli('localhost','root','','susruth');
 
 if (!$conn) {
     die("Connection failed");

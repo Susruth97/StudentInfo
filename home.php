@@ -15,7 +15,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <style>
 .bg {
-background-image:url("2.jpg");
+background-image:url("u1.jpg");
       height: 100%; 
 
     /* Center and scale the image nicely */
@@ -24,7 +24,7 @@ background-image:url("2.jpg");
     background-size: cover;
      }
 a {
-    color: Aqua;
+    color: orange;
 	padding: 14px 25px;
     text-align: center; 
 }
@@ -32,19 +32,85 @@ input[type="text"]{
 background: transparent;
 }
 
+.form-control {
+    border: 0;
+}
+
+.header-right {
+  float: right;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* Change the background color on mouse-over */
+.header a:hover {
+  background-color: transparent;
+  color: orange;
+}
+
+.header {
+  overflow: hidden;
+  background-color: transparent;
+  padding: 20px 10px;
+}
+
+.header a {
+  float: left;
+  color: goldenrod;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header a.active {
+  background-color: transparent;
+  color: orange;
+}
+
+
 </style>
 
 </head>
-<body class="text-info"><div class = "bg">
+<body class="text-warning"><div class = "bg">
 <div class = "container">
 
+	<div class="header">
+		<a href="#default" class="logo">STUDENT INFO</a>
+		<div class="header-right">
+		<a class="active" href="#home">Home</a>
+		<a href="reg.php">Insert</a>
+		<a href="signout.php">LogOut</a>
+		<a href="#about">About</a>
+		</div>
+	</div><br>
 
-<?php  
+<form action="home.php" method="POST">
+		<table class="table table-striped">
+			<tr><td align="left">
+					<font size="4">Student Search</font>
+				</td>
+				<td>
+					<input type="text" class="form-control" name="name" id="name" placeholder="Enter Your Search">
+					
+				</td>
+				<td align="center"><input class="btn btn-warning" role="button" type="submit" value="Search"></td>
+		   	</tr></table></form><br>
+ 
+ <?php  
 	
-	$name = $_POST['name'];	
+	$name = false;
+	if(isset($_POST['name'])){
+    $name = $_POST['name'];
+	} 
 
-	$conn = new mysqli('localhost','root','1','susruth') or die ('Error connecting to mysql');  
-	$limit = 2;  
+	$conn = new mysqli('localhost','root','','susruth') or die ('Error connecting to mysql');  
+	$limit = 3;  
 	if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };  
 	$start_from = ($page-1) * $limit;
 	$count = 1;
@@ -56,23 +122,9 @@ background: transparent;
 		$sql = "SELECT * FROM students ORDER BY id ASC LIMIT $start_from, $limit";  
 	$rs_result = mysqli_query ($conn, $sql);  
 ?>  
-
-<h1 align = "center">STUDENT DETAILS</h1> 
-<br>
-<form action="home.php" method="POST">
-		<table class="table table-bordered">
-			<tr><td align="left">
-					<font size="4">Student Search</font>
-				</td>
-				<td>
-					<input type="text" class="form-control" name="name" id="name" placeholder="Enter Your Search">
-					
-				</td>
-				<td align="center"><input class="btn btn-info" role="button" type="submit" value="Search"></td>
-		   	</tr></table></form><br>
  
 <?php  
-	echo '<table class="table table-bordered">
+	echo '<table class="table table-striped">
 	    	<tr>
 			<th>ID</th>
 				<th>EMAIL</th>
@@ -94,8 +146,8 @@ background: transparent;
 					<td>'.$row['college'].'</td>
 					<td>'.$row['branch'].'</td>
 					<td>'.$row['year'].'</td>	
-					<td><a href="del.php?id='.$row['id'].'"><button class="btn btn-info" onclick="return myFunction()">Delete</button></a></td>
-					<td><a href="update.php?id='.$row['id'].'"><button class="btn btn-info">Update</button></a></td>
+					<td><a href="del.php?id='.$row['id'].'"><button class="btn btn-warning" onclick="return myFunction()">Delete</button></a></td>
+					<td><a href="update.php?id='.$row['id'].'"><button class="btn btn-warning">Update</button></a></td>
 			
 				</tr>';
 		}
@@ -114,7 +166,7 @@ $total_pages = ceil($total_records / $limit);
 $pagLink = '<div class="pagination" allign = "center">';
 echo '<div class = "text-center">';
 for ($i=1; $i<=$total_pages; $i++) {  
-             $pagLink .= "<a href='home.php?page=".$i."'>   ".$i." </a>";  
+             $pagLink .= "<a href='home.php?page=".$i."'>  Page ".$i." </a>";  
 };  
 
 echo $pagLink . "</div></div>";  
@@ -123,11 +175,7 @@ echo $pagLink . "</div></div>";
 
 <br>
 
-<table class="table table-bordered"> <tr>
-				<td><a href="reg.php"><button class="btn btn-info">Insert</button></a></td>
-				<td><a href="signout.php"><button class="btn btn-info">LogOut</button></a></td>
-		</tr>
-</table>
+
 <script type="text/javascript">
 function myFunction() {
 

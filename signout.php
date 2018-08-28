@@ -6,6 +6,6 @@
 	{
 	   unset($_SESSION["user"]);
 	}
-	header('Location: faculty.php'); 
+	header('Location: login.php'); 
 ?>
 </body></html>
